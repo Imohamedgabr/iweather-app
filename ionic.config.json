@@ -1,5 +1,7 @@
 {
   "name": "iweather",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }
