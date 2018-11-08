@@ -32,21 +32,25 @@ export class HomePage {
 
     this.storage.get('location').then((val) => {
       if(val != null ){
+        this.location = JSON.parse(val);
         
       }else{
-
+        this.location = {
+          city:'Miami'
+        }
       }
+
+      
+    this.weatherProvider.getWeather(this.location.city)
+    .subscribe(weather => {
+      this.weather = weather;
+      this.src = 'img/' + weather.weather[0].icon + '.png';
+      console.log(this.weather);
     });
 
-    this.location = {
-      city:'Miami'
-    }
-    this.weatherProvider.getWeather(this.location.city)
-      .subscribe(weather => {
-        this.weather = weather;
-        this.src = 'img/' + weather.weather[0].icon + '.png';
-        console.log(this.weather);
-      });
+    });
+
+    
   }
 
 }

@@ -34,8 +34,8 @@ export class SettingsPage {
       city: this.city
     }
     // console.log(location);
-    // this.storage.set('location',JSON.stringify(location));
-    // this.navCtrl.push(HomePage);
+    this.storage.set('location',JSON.stringify(location));
+    this.navCtrl.push(HomePage);
   }
 
 }
